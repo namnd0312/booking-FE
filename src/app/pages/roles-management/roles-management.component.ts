@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormControl, FormGroup} from "@angular/forms";
+import {UntypedFormBuilder, UntypedFormControl, UntypedFormGroup} from "@angular/forms";
 import {formatDateToString} from "../../share/utils/format-datepicker";
 import {DATE_FORMAT_DDMMYYYY} from "../../share/constants/input.constants";
 import {BehaviorSubject} from "rxjs";
@@ -14,7 +14,7 @@ import {Way4Card} from "./roles-management.model";
 })
 export class RolesManagementComponent implements OnInit {
 
-    searchForm: FormGroup;
+    searchForm: UntypedFormGroup;
     cardStatusLst: any[] = [
         {type: '1', desc: 'Tạo mới'},
         {type: '2a', desc: 'VHT chuyển phát trực tiếp tới KH'},
@@ -41,7 +41,7 @@ export class RolesManagementComponent implements OnInit {
     checkAllValid: boolean = true;
 
     constructor(
-        private fb: FormBuilder,
+        private fb: UntypedFormBuilder,
         private toastService: ToastrService
     ) {
     }
@@ -53,8 +53,8 @@ export class RolesManagementComponent implements OnInit {
 
     initForm() {
         this.searchForm = this.fb.group({
-            roleName: new FormControl(),
-            roleId: new FormControl()
+            roleName: new UntypedFormControl(),
+            roleId: new UntypedFormControl()
         });
     }
 

@@ -1,5 +1,5 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {Observable, Subscription} from 'rxjs';
 import {first} from 'rxjs/operators';
 import {AuthService} from '../_services/auth.service';
@@ -15,7 +15,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         username: 'evoucher1',
         password: '123456a@',
     };
-    loginForm: FormGroup;
+    loginForm: UntypedFormGroup;
     hasError: boolean;
     returnUrl: string;
     isLoading$: Observable<boolean>;
@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private unsubscribe: Subscription[] = []; // Read more: => https://brianflove.com/2016/12/11/anguar-2-unsubscribe-observables/
 
     constructor(
-        private fb: FormBuilder,
+        private fb: UntypedFormBuilder,
         private authService: AuthService,
         private route: ActivatedRoute,
         private router: Router
